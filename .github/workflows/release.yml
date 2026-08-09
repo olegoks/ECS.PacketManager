@@ -21,20 +21,20 @@ jobs:
       - name: Debug - show current version line
         run: |
           echo "=== Current version line ==="
-          grep -n "Version" ECS.Resource.ecs_package
+          grep -n "Version" ECS.PacketManager.ecs_package
           echo "=== Full file ==="
-          cat ECS.Resource.ecs_package
+          cat ECS.PacketManager.ecs_package
       
       - name: Inject version into manifest
         run: |
-            sed -i -E 's/(^\s*Version\s*=\s*)"[^"]*"/\1"${{ steps.get_version.outputs.VERSION }}"/' ECS.Resource.ecs_package
+            sed -i -E 's/(^\s*Version\s*=\s*)"[^"]*"/\1"${{ steps.get_version.outputs.VERSION }}"/' ECS.PacketManager.ecs_package
             echo "=== Updated manifest ==="
-            cat ECS.Resource.ecs_package
+            cat ECS.PacketManager.ecs_package
 
       - name: Create package archive
         run: |
           zip -r ${{ github.event.repository.name }}-${{ steps.get_version.outputs.VERSION }}.zip \
-            ECS.Resource.ecs_package \
+            ECS.PacketManager.ecs_package \
             Sources/
 
       - name: Verify archive
@@ -45,7 +45,7 @@ jobs:
         with:
           files: |
             ${{ github.event.repository.name }}-${{ steps.get_version.outputs.VERSION }}.zip
-            ECS.Resource.ecs_package
+            ECS.PacketManager.ecs_package
           name: "Release ${{ steps.get_version.outputs.VERSION }}"
           tag_name: ${{ github.ref_name }}
         env:

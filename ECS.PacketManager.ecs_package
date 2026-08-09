@@ -1,0 +1,15 @@
+Package = {
+    Name = "Resource",
+    Version = "0.0.0-dev",
+    FrameworkVersion = "1.0.0",
+    Dependecies = {
+        {
+            Name = "Common",
+            Version = "latest"
+        }
+    },
+    Modules = {
+        { "Sources/Resource.ecs_module" }
+    }
+
+}
