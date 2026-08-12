@@ -2,6 +2,11 @@ Package = {
     Name = "Resource",
     Version = "0.0.0-dev",
     FrameworkVersion = "1.0.0",
+    VcPkgDependecies = {
+        "CURL",
+        "libzip",
+        "nlohmann_json"
+    },
     Dependecies = {
         {
             Name = "Common",
