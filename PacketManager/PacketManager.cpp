@@ -1,7 +1,7 @@
 ﻿#include <PacketManager/auto_PacketManager.hpp>
 #include <PacketManager/PacketManager.Version.Utils.hpp>
 
-#include <Resources/OksEngine.ResourceSystem.Utils.hpp>
+#include <Resource/OksEngine.ResourceSystem.Utils.hpp>
 
 #include <Lua.Context.hpp>
 
